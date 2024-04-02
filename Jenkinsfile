@@ -20,7 +20,7 @@ pipeline {
         stage('Build and Push Docker Image') {
             steps {
                 //build and push docker image to docker registry
-                sh "echo 'this is docker image build stage"
+                sh "echo 'this is docker image build stage'"
                 script {
                     appImage = docker.build("${APP_IMAGE}")
                     docker.withRegistry("${DOCKER_REG_URL}", 'dockerhub-cred') {
