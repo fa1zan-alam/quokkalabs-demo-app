@@ -20,7 +20,7 @@ pipeline {
         stage('Build and Push Docker Image') {
             steps {
                 //build and push docker image to docker registry
-                sh "docker version"
+                sh "echo 'this is docker image build stage"
                 script {
                     appImage = docker.build("${APP_IMAGE}")
                     docker.withRegistry("${DOCKER_REG_URL}", 'dockerhub-cred') {
@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy App') {
             steps {
                 //deploy app
-                sh "docker version"
+                sh "echo 'this is deployment stage'"
                 script {
                     docker compose -f <(APP_IMAGE="${APP_IMAGE}" envsubst <docker-compose.yml) up -d                    
                 }
