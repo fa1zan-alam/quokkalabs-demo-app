@@ -11,8 +11,9 @@ pipeline {
         DOCKER_HOST_TCP_URL = "tcp://172.31.84.85:4243"
 
         MAIL_TO = """
-        faizualam637@gmail.com
+        faizualam637@gmail.com,
         """
+        // ananda.yashaswi@quokkalabs.com
         
     }
     stages {
