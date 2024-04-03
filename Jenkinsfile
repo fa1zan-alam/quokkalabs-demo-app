@@ -13,8 +13,7 @@ pipeline {
         MAIL_TO = """
         faizualam637@gmail.com
         """
-        // ananda.yashaswi@quokkalabs.com
-
+        
     }
     stages {
         stage('Code Checkout') {
