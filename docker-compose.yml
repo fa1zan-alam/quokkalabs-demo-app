@@ -2,7 +2,7 @@ services:
   quokkalabs-demo-app:
     deploy:
       replicas: 2
-    image: ${APP_IMAGE}
+    image: APP_IMAGE
     restart: always
     ports:
       - "3000-3001:3000"
