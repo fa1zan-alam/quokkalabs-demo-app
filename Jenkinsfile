@@ -9,6 +9,8 @@ pipeline {
 
         DOCKER_REG_URL = "https://index.docker.io/v1/"
 
+        DOCKER_HOST_TCP_URL = "tcp://172.31.84.85:4243"
+
     }
     stages {
         stage('Code Checkout') {
@@ -35,10 +37,12 @@ pipeline {
                 //deploy app
                 sh "echo 'this is deployment stage'"
                 script {
-                    sh '''
-                    sed  -i "s|image:.*|image: ${APP_IMAGE}|g" docker-compose.yml
-                    docker compose -f docker-compose.yml up -d
-                    '''
+                    docker.withServer("${DOCKER_HOST_TCP_URL}") {
+                        sh '''
+                        sed  -i "s|image:.*|image: ${APP_IMAGE}|g" docker-compose.yml
+                        docker compose -f docker-compose.yml up -d
+                        '''
+                    }
                 }
             }
         }
