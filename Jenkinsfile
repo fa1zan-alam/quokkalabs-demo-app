@@ -35,9 +35,10 @@ pipeline {
                 //deploy app
                 sh "echo 'this is deployment stage'"
                 script {
-                    sh """
-                    docker compose -f <(APP_IMAGE="${APP_IMAGE}" envsubst <docker-compose.yml) up -d
-                    """
+                    sh '''
+                    sed  -i "s|image:.*|image: ${APP_IMAGE}|g" docker-compose.yml
+                    docker compose -f docker-compose.yml up -d
+                    '''
                 }
             }
         }
