@@ -10,10 +10,10 @@ pipeline {
         DOCKER_REG_URL = "https://index.docker.io/v1/"
         DOCKER_HOST_TCP_URL = "tcp://172.31.84.85:4243"
 
-        MAIL_FROM = "faizan-jenkins@example.com"
         MAIL_TO = """
         faizualam637@gmail.com
         """
+        // ananda.yashaswi@quokkalabs.com
 
     }
     stages {
@@ -54,8 +54,7 @@ pipeline {
     post {
          always {
             echo 'Sending Job status via email'
-            mail from: "${MAIL_FROM}",
-            to: "${MAIL_TO}",
+            mail to: "${MAIL_TO}",
             subject: "[${currentBuild.currentResult}]: Jenkins Job | ${env.JOB_NAME} | #${env.BUILD_NUMBER}",
             body: """
             Please find job details below:
