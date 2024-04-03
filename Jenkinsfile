@@ -11,10 +11,10 @@ pipeline {
         DOCKER_HOST_TCP_URL = "tcp://172.31.84.85:4243"
 
         MAIL_TO = """
+        ananda.yashaswi@quokkalabs.com,
         faizualam637@gmail.com,
         """
-        //// ananda.yashaswi@quokkalabs.com
-        
+                
     }
     stages {
         stage('Code Checkout') {
