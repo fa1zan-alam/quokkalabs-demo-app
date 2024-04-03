@@ -37,7 +37,7 @@ pipeline {
                 script {
                     sh '''
                     
-                    cat <(APP_IMAGE="${APP_IMAGE}" envsubst <docker-compose.yml)
+                    cat docker-compose.yml
                     '''
                 }
             }
