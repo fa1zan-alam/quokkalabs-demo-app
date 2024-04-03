@@ -36,7 +36,7 @@ pipeline {
                 sh "echo 'this is deployment stage'"
                 script {
                     sh '''
-                    #docker compose -f <(APP_IMAGE="${APP_IMAGE}" envsubst <docker-compose.yml) up -d
+                    
                     cat <(APP_IMAGE="${APP_IMAGE}" envsubst <docker-compose.yml)
                     '''
                 }
